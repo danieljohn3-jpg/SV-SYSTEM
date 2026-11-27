@@ -74,27 +74,27 @@ body.dark-mode{background:#1c1c1e;background-image:radial-gradient(circle at 15%
 body.font-small{font-size:11px}body.font-medium{font-size:13px}body.font-large{font-size:15px}
 .glass-container{max-width:100%;width:100%;margin:0;border-radius:0;background:transparent;display:block;position:relative;z-index:10}
 
-/* Header 与 LOGO 区域 */
-.excel-header{background:var(--glass-bg);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);padding:16px 34px 14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.6) inset,0 2px 12px rgba(0,0,0,.04);transition: all 0.3s ease;}
-body.dark-mode .excel-header{box-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 2px 12px rgba(0,0,0,.3)}
+/* Header 与 LOGO 区域（全平台真正冻结吸顶） */
+.excel-header{background:var(--glass-bg);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);padding:14px 30px;display:flex;justify-content:space-between;align-items:center;flex-wrap:nowrap;gap:16px;border-bottom:1px solid var(--border);position:fixed;top:0;left:0;right:0;width:100%;z-index:1000;box-shadow:0 1px 0 rgba(255,255,255,.6) inset,0 4px 16px rgba(0,0,0,.06);transition:background .3s ease,padding .25s ease;}
+body.dark-mode .excel-header{box-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 4px 16px rgba(0,0,0,.35)}
 body.dark-mode .custom-logo-slot img.is-default-logo{filter:invert(1) brightness(1.1);}
 
-.logo-area{display:flex;flex-direction:row;align-items:center;gap:18px;flex-wrap:wrap;line-height:1}
-.logo-text-group{display:flex;flex-direction:column;align-items:flex-start;gap:4px}
-.custom-logo-slot{height:58px;min-width:44px;max-width:190px;border-radius:12px;background:transparent;border:none;display:none;align-items:center;justify-content:center;position:relative;overflow:hidden;flex-shrink:0;cursor:default}
+.logo-area{display:flex;flex-direction:row;align-items:center;gap:clamp(10px,1.5vw,18px);flex-wrap:nowrap;line-height:1;min-width:0}
+.logo-text-group{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:4px;min-width:0}
+.custom-logo-slot{height:clamp(36px,4.8vw,70px);width:auto;min-width:clamp(36px,4.8vw,70px);max-width:clamp(120px,16vw,240px);border-radius:12px;background:transparent;border:none;display:none;align-items:center;justify-content:center;position:relative;overflow:hidden;flex-shrink:0;cursor:default}
 .custom-logo-slot.has-logo{display:flex;}
 .custom-logo-slot img{height:100%;width:auto;max-width:100%;object-fit:contain;padding:0;display:block;border-radius:8px}
 .custom-logo-slot input[type="file"]{display:none}
-.logo-seventeen{font-family:'Orbitron','Audiowide',-apple-system,'SF Pro Display',sans-serif;font-size:48px;font-weight:900;letter-spacing:8px;background:linear-gradient(120deg,#0071e3,#5ac8fa,#af52de,#ff2d55,#0071e3);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:colorShimmer 8s ease-in-out infinite;user-select:none;line-height:1.05;filter:drop-shadow(0 2px 8px rgba(0,113,227,.2))}
-.logo-sub{font-family:'KaiTi','STKaiti','BiauKai',serif;font-size:16px;font-weight:700;letter-spacing:6px;color:var(--accent);text-transform:uppercase;padding-left:6px;background:linear-gradient(90deg,#0071e3,#5ac8fa,#af52de,#0071e3);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:colorShimmer2 6s ease-in-out infinite;white-space:nowrap;margin-top:4px}
+.logo-seventeen{font-family:'Orbitron','Audiowide',-apple-system,'SF Pro Display',sans-serif;font-size:clamp(20px,3.2vw,46px);font-weight:900;letter-spacing:clamp(1.5px,0.55vw,8px);background:linear-gradient(120deg,#0071e3,#5ac8fa,#af52de,#ff2d55,#0071e3);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:colorShimmer 8s ease-in-out infinite;user-select:none;line-height:1.05;white-space:nowrap;filter:drop-shadow(0 2px 8px rgba(0,113,227,.2))}
+.logo-sub{font-family:'KaiTi','STKaiti','BiauKai',serif;font-size:clamp(10px,1.15vw,16px);font-weight:700;letter-spacing:clamp(1px,0.4vw,6px);color:var(--accent);text-transform:uppercase;padding-left:2px;background:linear-gradient(90deg,#0071e3,#5ac8fa,#af52de,#0071e3);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:colorShimmer2 6s ease-in-out infinite;white-space:nowrap;margin-top:2px}
 @keyframes colorShimmer{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}
 @keyframes colorShimmer2{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}
-.header-right{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.header-right{display:flex;align-items:center;gap:clamp(8px,1.2vw,16px);flex-wrap:nowrap;flex-shrink:0}
 .header-contact{display:flex;align-items:center;gap:12px;font-size:11px;color:var(--text-2);background:var(--bg-1);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:7px 18px;border-radius:100px;border:1px solid var(--border);box-shadow:0 1px 2px rgba(0,0,0,.04)}
 .header-contact .sep{width:1px;height:14px;background:var(--border-hi)}
 
-/* 菜单栏（导航） */
-.menu-bar{background:var(--glass-bg);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);padding:0 24px;display:flex;align-items:center;gap:4px;border-bottom:1px solid var(--border);flex-wrap:wrap;position:sticky;top:106px;z-index:99;overflow-x:auto;white-space:nowrap;transition: top 0.3s ease}
+/* 菜单栏（导航，紧贴冻结顶栏下方） */
+.menu-bar{background:var(--glass-bg);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);padding:0 24px;display:flex;align-items:center;gap:4px;border-bottom:1px solid var(--border);flex-wrap:nowrap;position:fixed;top:98px;left:0;right:0;width:100%;z-index:999;overflow-x:auto;white-space:nowrap;transition:top 0.2s ease}
 .menu-bar::-webkit-scrollbar{display:none}
 .menu-bar .menu-item{padding:14px 18px;font-size:13px;font-weight:500;color:var(--text-1);cursor:pointer;transition:all .2s;border:none;background:transparent;border-bottom:2px solid transparent;margin-bottom:-1px;border-radius:0}
 .menu-bar .menu-item:hover{color:var(--accent);background:var(--accent-soft)}
@@ -288,24 +288,29 @@ footer{text-align:center;padding:18px 20px;font-size:11px;color:var(--text-3);ba
 }
 
 @media(max-width: 1024px) {
-    .custom-logo-slot { height: 46px; max-width: 150px; border-radius: 10px; }
-}
-@media(max-width:400px){
-    .custom-logo-slot { height: 26px; min-width: 24px; max-width: 78px; }
-    .logo-seventeen { font-size: 18px; letter-spacing: 1px; }
+    .custom-logo-slot { height: 52px; min-width: 52px; max-width: 165px; border-radius: 10px; }
+    .logo-seventeen { font-size: 32px; letter-spacing: 4px; }
+    .logo-sub { font-size: 13px; letter-spacing: 3px; }
 }
 @media(max-width:768px){
-    .excel-header{ padding: 10px 14px; flex-direction: row; align-items: center; justify-content: space-between; gap: 8px; top: 0; }
-    .header-right{ width: auto; gap: 8px; }
+    .excel-header{ padding: 10px 12px; flex-direction: row; align-items: center; justify-content: space-between; gap: 8px; top: 0; }
+    .header-right{ width: auto; gap: 6px; }
     .header-contact { display: none !important; }
-    .logo-area { gap: 8px; flex-wrap: nowrap; max-width: calc(100% - 115px); }
+    .logo-area { gap: 8px; flex-wrap: nowrap; max-width: calc(100% - 145px); }
     
-    .custom-logo-slot { height: 30px; min-width: 28px; max-width: 96px; border-radius: 7px; }
+    .custom-logo-slot { height: 38px; min-width: 38px; max-width: 108px; border-radius: 8px; }
     .logo-seventeen { font-size: 21px; letter-spacing: 1.5px; }
-    .logo-sub { font-size: 9px; letter-spacing: 0.5px; margin-top: 2px; padding-left: 0; }
+    .logo-sub { font-size: 10px; letter-spacing: 0.8px; margin-top: 2px; padding-left: 0; }
+    .live-badge { padding: 4px 8px; font-size: 10px; }
+    .auth-btn { padding: 6px 10px; font-size: 11px; }
     
-    .menu-bar { top: 52px; padding: 0 10px; }
-    .menu-bar .menu-item { padding: 12px 12px; font-size: 13px; }
+    .menu-bar { padding: 0 10px; }
+    .menu-bar .menu-item { padding: 11px 12px; font-size: 13px; }
+}
+@media(max-width:400px){
+    .custom-logo-slot { height: 33px; min-width: 33px; max-width: 92px; border-radius: 7px; }
+    .logo-seventeen { font-size: 18px; letter-spacing: 1px; }
+    .logo-sub { font-size: 9px; letter-spacing: 0.5px; }
 
     .main-content{padding:16px 12px 30px}
     .form-card,.about-section,.settings-card{padding:18px 14px; border-radius: 14px;}
@@ -5011,6 +5016,27 @@ function getUserPresenceHtml(u) {
     const label = offlineTime ? dict.offlineAt(offlineTime) : dict.offline;
     return `<span style="display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:999px;background:rgba(142,142,147,.14);color:var(--text-2);font-size:12px;font-weight:500;"><span style="width:7px;height:7px;border-radius:50%;background:#8e8e93;"></span>${label}</span>`;
 }
+
+function syncFrozenHeaderOffsets() {
+  const header = document.querySelector('.excel-header');
+  const menu = document.getElementById('mainMenuBar');
+  const container = document.getElementById('appContainer');
+  if (!header) return;
+  const hHeight = header.offsetHeight;
+  const mHeight = menu ? menu.offsetHeight : 0;
+  if (menu) menu.style.top = hHeight + 'px';
+  if (container) container.style.paddingTop = (hHeight + mHeight) + 'px';
+}
+window.addEventListener('resize', syncFrozenHeaderOffsets);
+window.addEventListener('orientationchange', syncFrozenHeaderOffsets);
+if (window.ResizeObserver) {
+  const ro = new ResizeObserver(syncFrozenHeaderOffsets);
+  const hEl = document.querySelector('.excel-header');
+  const mEl = document.getElementById('mainMenuBar');
+  if (hEl) ro.observe(hEl);
+  if (mEl) ro.observe(mEl);
+}
+syncFrozenHeaderOffsets();
 
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
 else init();
