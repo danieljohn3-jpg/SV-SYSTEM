@@ -4848,28 +4848,9 @@ async function init(){
     applyLanguage(getCurrentLang());
     clearForm(); if(window.lucide) lucide.createIcons();
 
-    // 每次打开页面自动弹出提醒 Message Box 绑定（支持中/英/缅三语同步与弹窗内切换）
+    // 每次打开页面自动弹出提醒 Message Box 绑定（中/英/缅三语同屏展示，无需切换）
     const startupModal = $('startupWelcomeModal');
-    window.__syncStartupNoticeLang = function(langCode) {
-        const d = I18N_DICT[langCode] || I18N_DICT.zh;
-        if ($('startupModalTitleText')) $('startupModalTitleText').textContent = d.startupTitle;
-        if ($('startupModalBodyText')) $('startupModalBodyText').textContent = d.startupBody;
-        if ($('startupModalConfirmBtn')) $('startupModalConfirmBtn').textContent = d.startupBtn;
-        document.querySelectorAll('.startup-lang-btn').forEach(btn => {
-            const active = btn.getAttribute('data-lang') === langCode;
-            btn.style.background = active ? 'var(--accent)' : 'var(--bg-1)';
-            btn.style.color = active ? '#fff' : 'var(--text-1)';
-            btn.style.borderColor = active ? 'var(--accent)' : 'var(--border)';
-        });
-    };
     if (startupModal) {
-        window.__syncStartupNoticeLang(getCurrentLang());
-        document.querySelectorAll('.startup-lang-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const chosen = btn.getAttribute('data-lang');
-                applyLanguage(chosen);
-            });
-        });
         startupModal.classList.add('active');
         const closeStartup = () => startupModal.classList.remove('active');
         if ($('startupModalCloseBtn')) $('startupModalCloseBtn').addEventListener('click', closeStartup);
@@ -5036,25 +5017,34 @@ else init();
 
 
 
-<!-- 每次打开页面自动弹出的连接提示 Message Box -->
+<!-- 每次打开页面自动弹出的连接提示 Message Box（中/英/缅三语同屏展示） -->
 <div id="startupWelcomeModal" class="modal-overlay active" style="z-index: 99999;">
-<div class="common-modal modal-info" style="width:460px;max-width:92vw;">
+<div class="common-modal modal-info" style="width:520px;max-width:94vw;">
 <div class="modal-head">
-  <h3 style="display:flex;align-items:center;gap:8px;"><i data-lucide="wifi" class="ui-icon" style="width:19px;height:19px;color:var(--accent);"></i> <span id="startupModalTitleText">连接提示</span></h3>
+  <h3 style="display:flex;align-items:center;gap:8px;font-size:16px;line-height:1.4;">
+    <i data-lucide="wifi" class="ui-icon" style="width:20px;height:20px;color:#fff;flex-shrink:0;"></i>
+    <span>连接提示 · Connection Notice · ချိတ်ဆက်မှု အသိပေးချက်</span>
+  </h3>
   <button type="button" id="startupModalCloseBtn" aria-label="关闭">×</button>
 </div>
-<div class="modal-body" style="line-height:1.75;font-size:14px;">
-  <div style="display:flex;gap:6px;margin-bottom:14px;">
-    <button type="button" class="btn-secondary startup-lang-btn" data-lang="zh" style="padding:4px 10px;font-size:12px;border-radius:8px;">中文</button>
-    <button type="button" class="btn-secondary startup-lang-btn" data-lang="en" style="padding:4px 10px;font-size:12px;border-radius:8px;">English</button>
-    <button type="button" class="btn-secondary startup-lang-btn" data-lang="my" style="padding:4px 10px;font-size:12px;border-radius:8px;">မြန်မာ</button>
-  </div>
-  <div id="startupModalBodyText" style="background:var(--accent-soft);border-left:4px solid var(--accent);padding:14px 16px;border-radius:0 10px 10px 0;color:var(--text-0);font-size:14px;line-height:1.75;">
+<div class="modal-body" style="display:flex;flex-direction:column;gap:12px;padding:20px 22px;">
+  <div style="background:var(--accent-soft);border-left:4px solid var(--accent);padding:12px 15px;border-radius:0 10px 10px 0;color:var(--text-0);font-size:14px;line-height:1.65;">
+    <div style="font-size:11px;font-weight:700;color:var(--accent);letter-spacing:.5px;margin-bottom:4px;">中文</div>
     为保证数据正常上传与同步至云端，请在连接 VPN 后操作。若未连接，可能导致数据丢失或未更新。
   </div>
+  <div style="background:var(--accent-soft);border-left:4px solid var(--accent);padding:12px 15px;border-radius:0 10px 10px 0;color:var(--text-0);font-size:13.5px;line-height:1.6;">
+    <div style="font-size:11px;font-weight:700;color:var(--accent);letter-spacing:.5px;margin-bottom:4px;">ENGLISH</div>
+    To ensure data is properly uploaded and synced to the cloud, please connect to a VPN before proceeding. Otherwise, data may be lost or fail to update.
+  </div>
+  <div style="background:var(--accent-soft);border-left:4px solid var(--accent);padding:12px 15px;border-radius:0 10px 10px 0;color:var(--text-0);font-size:13.5px;line-height:1.8;">
+    <div style="font-size:11px;font-weight:700;color:var(--accent);letter-spacing:.5px;margin-bottom:4px;">မြန်မာဘာသာ</div>
+    ဒေတာများ Cloud သို့ ပုံမှန်အတိုင်း အပ်လုဒ်တင်ပြီး ထပ်တူပြုနိုင်ရန် VPN ချိတ်ဆက်ပြီးမှ ဆက်လက်လုပ်ဆောင်ပါ။ မချိတ်ဆက်ထားပါက ဒေတာပျောက်ဆုံးခြင်း သို့မဟုတ် အပ်ဒိတ်မဖြစ်ခြင်းများ ရှိနိုင်ပါသည်။
+  </div>
 </div>
-<div class="modal-footer" style="justify-content:center;">
-  <button type="button" class="btn-modal-primary" id="startupModalConfirmBtn" style="width:100%;padding:11px 24px;">确认并继续</button>
+<div class="modal-footer" style="justify-content:center;padding:0 22px 20px;">
+  <button type="button" class="btn-modal-primary" id="startupModalConfirmBtn" style="width:100%;padding:12px 20px;font-size:13.5px;line-height:1.4;">
+    确认并继续 · Confirm &amp; Continue · အတည်ပြုပြီး ဆက်လက်လုပ်ဆောင်မည်
+  </button>
 </div>
 </div>
 </div>
