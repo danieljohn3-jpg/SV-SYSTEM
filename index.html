@@ -6,16 +6,49 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#eceff5">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="format-detection" content="telephone=no, email=no" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="SEVENTEEN · 缝纫设备智能流转系统" />
+<meta property="og:description" content="多端实时同步 · 缝纫设备入库/出库/借还/维修与单机二维码全生命周期管理" />
+<meta name="description" content="SEVENTEEN 缝纫设备智能流转系统 - 支持电脑、手机、平板、微信及各浏览器多端实时同步" />
 <title>SEVENTEEN · 缝纫设备智能流转系统</title>
-<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=bV4SWmK0SmlK2lJr2YmuimofXe8bvvWAe1A1gaU0nDcQh1NI19f_b2Jh3d-6of2jbIjJkDZP1ovonIaaJfuL7DRjP2LRI1IiRbTkjNL5IcPYqNVpqv4isPd-RK8cbMy7hxkIrKRJiSOhMdOjD3PygoVdRbEgtGDdrsiUCQv_Q43ad3AKa7S5-I6OMFJGHUfXbx1cJvDSTCLEel65xU_rBq7DGzOOI5TP-x8rnt3O6qCesRtKmFQauMYs4Uty9UCm2oaznHqjKPINkqC9mp5UqhMoJw2L-e2Hvfc-V_cP7t0nQYrbW2NXPs0grq_a1EbK" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9jb250cmlidXRpb24udXNlcmNvbnRlbnQuZ29vZ2xlLmNvbS9kb3dubG9hZD9jPUNneGlZWEprWDNOMGIzSmhaMlVTVUJJTmNtVnpjRzl1YzJWZlpHRjBZUm9fQ2pCaE1tSXlPRFEyWXpSbU9XWXhOek00TURBd05qWXhNamxsTldVNU4yVTNNVEEyTXpobVlXUmpPVGd6WVRoa1pERVNDeElIRVBpUTFLbVNBeGdCJmZpbGVuYW1lPWluZGV4Lmh0bWwmb3BpPTEwMzEzNTA1MA"/><script defer src="https://cdn.jsdelivr.net/npm/lucide@0.468.0/dist/umd/lucide.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+<script>
+(function(){
+  var fallbacks = {
+    'lucide.min.js': 'https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js',
+    'xlsx.full.min.js': 'https://unpkg.com/xlsx@0.18.5/dist/xlsx.full.min.js',
+    'html2pdf.bundle.min.js': 'https://unpkg.com/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js',
+    'html2canvas.min.js': 'https://unpkg.com/html2canvas@1.4.1/dist/html2canvas.min.js',
+    'echarts.min.js': 'https://unpkg.com/echarts@5.4.3/dist/echarts.min.js',
+    'html5-qrcode.min.js': 'https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js'
+  };
+  window.addEventListener('error', function(e){
+    var el = e.target;
+    if(el && el.tagName === 'SCRIPT' && el.src && !el.dataset.retried){
+      for(var key in fallbacks){
+        if(el.src.indexOf(key) !== -1){
+          var s = document.createElement('script');
+          s.src = fallbacks[key];
+          s.dataset.retried = '1';
+          document.head.appendChild(s);
+          break;
+        }
+      }
+    }
+  }, true);
+})();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
 <link rel="dns-prefetch" href="https://clszyancqqsoswtoszca.supabase.co">
 <link rel="preconnect" href="https://clszyancqqsoswtoszca.supabase.co" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Audiowide&family=Rajdhani:wght@600;700&family=Montserrat:wght@700;900&family=Playfair+Display:wght@700;900&family=Cinzel:wght@700;900&family=Poppins:wght@600;800&family=Noto+Sans+SC:wght@500;700;900&family=Noto+Serif+SC:wght@600;900&family=Ma+Shan+Zheng&family=ZCOOL+XiaoWei&display=swap" media="print" onload="this.media=\'all\'">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Audiowide&family=Rajdhani:wght@600;700&family=Montserrat:wght@700;900&family=Playfair+Display:wght@700;900&family=Cinzel:wght@700;900&family=Poppins:wght@600;800&family=Noto+Sans+SC:wght@500;700;900&family=Noto+Serif+SC:wght@600;900&family=Ma+Shan+Zheng&family=ZCOOL+XiaoWei&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue','Segoe UI','Inter',sans-serif;-webkit-tap-highlight-color:transparent}
 :root{
@@ -758,18 +791,12 @@ body.dark-mode .custom-select-menu {
 }
 
 
-/* 移动端兼容性与防白屏加固 */
-@media(max-width:768px){
-    body{background-attachment:scroll !important;}
-    .excel-header,.menu-bar,.form-card,.stat-item,.about-section,.settings-card{
-        backdrop-filter:none !important;
-        -webkit-backdrop-filter:none !important;
-        background:var(--bg-1) !important;
-    }
-    body.dark-mode .excel-header,body.dark-mode .menu-bar,body.dark-mode .form-card,body.dark-mode .stat-item,body.dark-mode .about-section,body.dark-mode .settings-card{
-        background:#2c2c2e !important;
-    }
+/* 全平台安全区与微信/移动端浏览器兼容增强 */
+@supports (padding: env(safe-area-inset-top)) {
+  .excel-header { padding-top: max(12px, env(safe-area-inset-top)); padding-left: max(14px, env(safe-area-inset-left)); padding-right: max(14px, env(safe-area-inset-right)); }
+  footer { padding-bottom: max(18px, env(safe-area-inset-bottom)); }
 }
+html, body { max-width: 100vw; overflow-x: hidden; -webkit-text-size-adjust: 100%; }
 
 </style>
 </head>
@@ -1321,29 +1348,6 @@ body.dark-mode .custom-select-menu {
 <div id="imageViewerModal" class="modal-overlay" onclick="if(event.target===this)this.classList.remove('active')"><div class="image-viewer-modal" id="imageViewerContent"></div></div>
 <div id="pdfExportContainer" style="position:fixed;left:-9999px;top:0;width:1100px;background:#fff;color:#000;"></div>
 
-<!-- 每次打开页面自动弹出的提醒 Message Box -->
-<div id="startupWelcomeModal" class="modal-overlay active" style="z-index: 99999;">
-<div class="common-modal modal-info" style="width:460px;max-width:92vw;">
-<div class="modal-head">
-  <h3 style="display:flex;align-items:center;gap:8px;"><i data-lucide="bell-ring" class="ui-icon" style="width:19px;height:19px;"></i> 系统温馨提醒</h3>
-  <button type="button" id="startupModalCloseBtn" aria-label="关闭">×</button>
-</div>
-<div class="modal-body" style="line-height:1.75;font-size:14px;">
-  <div style="background:var(--accent-soft);border-left:4px solid var(--accent);padding:12px 14px;border-radius:0 10px 10px 0;margin-bottom:14px;font-weight:600;color:var(--text-0);">
-    欢迎使用 SEVENTEEN · 缝纫设备智能流转系统！
-  </div>
-  <ul style="padding-left:18px;margin:0;color:var(--text-1);display:flex;flex-direction:column;gap:8px;">
-    <li><strong>操作权限：</strong>如需登记入库、出库、借还或编辑记录，请先点击右上角<strong>「账号登录」</strong>登录您的账号。</li>
-    <li><strong>单机溯源：</strong>点击列表中任意<strong>设备名称</strong>或蓝色<strong>序列号 (SN)</strong>，可查看完整流转档案并打印专属二维码标签。</li>
-    <li><strong>多端同步：</strong>系统已开启云端实时同步，离线状态下登记的数据也会自动保存并在恢复网络后补传。</li>
-  </ul>
-</div>
-<div class="modal-footer" style="justify-content:center;">
-  <button type="button" class="btn-modal-primary" id="startupModalConfirmBtn" style="width:100%;padding:11px 24px;">我知道了</button>
-</div>
-</div>
-</div>
-
 <script>
 (function(){
 'use strict';
@@ -1628,7 +1632,7 @@ async function sbRequest(path,options={}){
           cache: 'no-store',
           mode: 'cors',
           credentials: 'omit',
-          keepalive: false
+          keepalive: options.method && options.method !== 'GET' ? true : false
         });
         clearTimeout(timer);
         if(!res.ok){
@@ -2328,7 +2332,7 @@ function renderInventoryModal() {
     }
 }
 
-function exportInventoryExcel() {if(typeof XLSX==='undefined'){showToast('Excel组件仍在加载中，请稍候再试','warn');return;}
+function exportInventoryExcel() {
     const list = computeInventoryData().map(i => ({
         '设备名称': i.device_name, '设备型号': i.device_model, '累计入库': i.inQty,
         '累计出库': i.outQty, '借出未还': i.unLend, '借用未还': i.unBorrow,
@@ -3566,7 +3570,7 @@ function renderAuditLogs(){
 }
 
 // ================= 导出与打印功能 (含完整 PDF 导出) =================
-function exportExcel(){if(typeof XLSX==='undefined'){showToast('Excel组件仍在加载中，请稍候再试','warn');return;}
+function exportExcel(){
     const data=getFiltered().map(r=>({'日期':r.dateStr,'类型':typeLabels[r.type],'设备名称':r.device_name,'型号':r.device_model||'','序列号':r.serial_number||'','数量':r.quantity||1,'经手人':r.operator,'对方单位':r.counterparty||'','预计归还':r.expectedReturnDate||'','备注':r.remarks||''}));
     const ws=XLSX.utils.json_to_sheet(data);
     const wb=XLSX.utils.book_new();
@@ -4761,7 +4765,7 @@ function renderReport(){
         dailyCounts.push(count);
     }
 
-    if(typeof echarts==='undefined'){showToast('图表组件仍在加载中，请稍候再试','warn');return;}if(!chartPie)chartPie=echarts.init($('chartPie'));
+    if(!chartPie)chartPie=echarts.init($('chartPie'));
     if(!chartLine)chartLine=echarts.init($('chartLine'));
     if(!chartBar)chartBar=echarts.init($('chartBar'));
 
@@ -4801,7 +4805,6 @@ function renderReport(){
 }
 
 async function init(){
-try{
     if(darkMode) document.body.classList.add('dark-mode');
     const fs=localStorage.getItem('seventeen_fontSize'); if(fs)setFontSize(fs);
     applyDarkMode();
@@ -4845,9 +4848,28 @@ try{
     applyLanguage(getCurrentLang());
     clearForm(); if(window.lucide) lucide.createIcons();
 
-    // 每次打开页面自动弹出提醒 Message Box 绑定
+    // 每次打开页面自动弹出提醒 Message Box 绑定（支持中/英/缅三语同步与弹窗内切换）
     const startupModal = $('startupWelcomeModal');
+    window.__syncStartupNoticeLang = function(langCode) {
+        const d = I18N_DICT[langCode] || I18N_DICT.zh;
+        if ($('startupModalTitleText')) $('startupModalTitleText').textContent = d.startupTitle;
+        if ($('startupModalBodyText')) $('startupModalBodyText').textContent = d.startupBody;
+        if ($('startupModalConfirmBtn')) $('startupModalConfirmBtn').textContent = d.startupBtn;
+        document.querySelectorAll('.startup-lang-btn').forEach(btn => {
+            const active = btn.getAttribute('data-lang') === langCode;
+            btn.style.background = active ? 'var(--accent)' : 'var(--bg-1)';
+            btn.style.color = active ? '#fff' : 'var(--text-1)';
+            btn.style.borderColor = active ? 'var(--accent)' : 'var(--border)';
+        });
+    };
     if (startupModal) {
+        window.__syncStartupNoticeLang(getCurrentLang());
+        document.querySelectorAll('.startup-lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const chosen = btn.getAttribute('data-lang');
+                applyLanguage(chosen);
+            });
+        });
         startupModal.classList.add('active');
         const closeStartup = () => startupModal.classList.remove('active');
         if ($('startupModalCloseBtn')) $('startupModalCloseBtn').addEventListener('click', closeStartup);
@@ -4864,7 +4886,6 @@ try{
     } else if(targetDevice) {
         showLifecycle(targetDevice);
     }
-}catch(initErr){console.error('Init error:',initErr);}
 }
 
 // ================= 多语言国际化 (中文 / English / မြန်မာဘာသာ) =================
@@ -4877,7 +4898,10 @@ const I18N_DICT = {
         exportPdfBtn: '导出 PDF', printTableBtn: '打印报表',
         scanQrBtn: '扫一扫查设备', resetColWidthBtn: '重置列宽',
         submitFormBtn: '保存记录', clearFormBtn: '清空表单',
-        online: '在线', offline: '离线', offlineAt: (t) => `已离线 (${t} 时已离线)`
+        online: '在线', offline: '离线', offlineAt: (t) => `已离线 (${t} 时已离线)`,
+        startupTitle: '连接提示',
+        startupBody: '为保证数据正常上传与同步至云端，请在连接 VPN 后操作。若未连接，可能导致数据丢失或未更新。',
+        startupBtn: '确认并继续'
     },
     en: {
         navHome: 'Dashboard', navInventory: 'Inventory', navReport: 'Analytics',
@@ -4887,7 +4911,10 @@ const I18N_DICT = {
         exportPdfBtn: 'Export PDF', printTableBtn: 'Print Report',
         scanQrBtn: 'Scan QR Code', resetColWidthBtn: 'Reset Columns',
         submitFormBtn: 'Save Record', clearFormBtn: 'Clear Form',
-        online: 'Online', offline: 'Offline', offlineAt: (t) => `Offline (Left at ${t})`
+        online: 'Online', offline: 'Offline', offlineAt: (t) => `Offline (Left at ${t})`,
+        startupTitle: 'Connection Notice',
+        startupBody: 'To ensure data is properly uploaded and synced to the cloud, please connect to a VPN before proceeding. Otherwise, data may be lost or fail to update.',
+        startupBtn: 'Confirm & Continue'
     },
     my: {
         navHome: 'စက်ပစ္စည်းဇယား', navInventory: 'လက်ကျန်စာရင်း', navReport: 'စာရင်းအင်း',
@@ -4897,7 +4924,10 @@ const I18N_DICT = {
         exportPdfBtn: 'PDF ထုတ်မည်', printTableBtn: 'အစီရင်ခံစာထုတ်မည်',
         scanQrBtn: 'QR ကုဒ်စကင်န်ဖတ်ရန်', resetColWidthBtn: 'ကော်လံပြန်ညှိမည်',
         submitFormBtn: 'မှတ်တမ်းသိမ်းမည်', clearFormBtn: 'ဖောင်ရှင်းမည်',
-        online: 'အွန်လိုင်း', offline: 'အော့ဖ်လိုင်း', offlineAt: (t) => `အော့ဖ်လိုင်း (${t} တွင် ထွက်ခွာခဲ့သည်)`
+        online: 'အွန်လိုင်း', offline: 'အော့ဖ်လိုင်း', offlineAt: (t) => `အော့ဖ်လိုင်း (${t} တွင် ထွက်ခွာခဲ့သည်)`,
+        startupTitle: 'ချိတ်ဆက်မှု အသိပေးချက်',
+        startupBody: 'ဒေတာများ Cloud သို့ ပုံမှန်အတိုင်း အပ်လုဒ်တင်ပြီး ထပ်တူပြုနိုင်ရန် VPN ချိတ်ဆက်ပြီးမှ ဆက်လက်လုပ်ဆောင်ပါ။ မချိတ်ဆက်ထားပါက ဒေတာပျောက်ဆုံးခြင်း သို့မဟုတ် အပ်ဒိတ်မဖြစ်ခြင်းများ ရှိနိုင်ပါသည်။',
+        startupBtn: 'အတည်ပြုပြီး ဆက်လက်လုပ်ဆောင်မည်'
     }
 };
 
@@ -4933,6 +4963,7 @@ function applyLanguage(lang) {
         }
     });
 
+    if(typeof window.__syncStartupNoticeLang === 'function') window.__syncStartupNoticeLang(lang);
     if(can.manageUsers()) renderUserTable();
     if(window.lucide) lucide.createIcons();
 }
@@ -5003,6 +5034,30 @@ else init();
 </script>
 
 
+
+
+<!-- 每次打开页面自动弹出的连接提示 Message Box -->
+<div id="startupWelcomeModal" class="modal-overlay active" style="z-index: 99999;">
+<div class="common-modal modal-info" style="width:460px;max-width:92vw;">
+<div class="modal-head">
+  <h3 style="display:flex;align-items:center;gap:8px;"><i data-lucide="wifi" class="ui-icon" style="width:19px;height:19px;color:var(--accent);"></i> <span id="startupModalTitleText">连接提示</span></h3>
+  <button type="button" id="startupModalCloseBtn" aria-label="关闭">×</button>
+</div>
+<div class="modal-body" style="line-height:1.75;font-size:14px;">
+  <div style="display:flex;gap:6px;margin-bottom:14px;">
+    <button type="button" class="btn-secondary startup-lang-btn" data-lang="zh" style="padding:4px 10px;font-size:12px;border-radius:8px;">中文</button>
+    <button type="button" class="btn-secondary startup-lang-btn" data-lang="en" style="padding:4px 10px;font-size:12px;border-radius:8px;">English</button>
+    <button type="button" class="btn-secondary startup-lang-btn" data-lang="my" style="padding:4px 10px;font-size:12px;border-radius:8px;">မြန်မာ</button>
+  </div>
+  <div id="startupModalBodyText" style="background:var(--accent-soft);border-left:4px solid var(--accent);padding:14px 16px;border-radius:0 10px 10px 0;color:var(--text-0);font-size:14px;line-height:1.75;">
+    为保证数据正常上传与同步至云端，请在连接 VPN 后操作。若未连接，可能导致数据丢失或未更新。
+  </div>
+</div>
+<div class="modal-footer" style="justify-content:center;">
+  <button type="button" class="btn-modal-primary" id="startupModalConfirmBtn" style="width:100%;padding:11px 24px;">确认并继续</button>
+</div>
+</div>
+</div>
 
 </body>
 </html>
