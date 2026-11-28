@@ -49,6 +49,7 @@
 <link rel="dns-prefetch" href="https://clszyancqqsoswtoszca.supabase.co">
 <link rel="preconnect" href="https://clszyancqqsoswtoszca.supabase.co" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Audiowide&family=Rajdhani:wght@600;700&family=Montserrat:wght@700;900&family=Playfair+Display:wght@700;900&family=Cinzel:wght@700;900&family=Poppins:wght@600;800&family=Noto+Sans+SC:wght@500;700;900&family=Noto+Serif+SC:wght@600;900&family=Ma+Shan+Zheng&family=ZCOOL+XiaoWei&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Audiowide&family=Rajdhani:wght@600;700&family=Montserrat:wght@700;900&family=Playfair+Display:wght@700;900&family=Cinzel:wght@700;900&family=Poppins:wght@600;800&family=Noto+Sans+SC:wght@500;700;900&family=Noto+Serif+SC:wght@600;900&family=Ma+Shan+Zheng&family=ZCOOL+XiaoWei&display=swap"></noscript>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue','Segoe UI','Inter',sans-serif;-webkit-tap-highlight-color:transparent}
 :root{
@@ -1529,7 +1530,7 @@ function updatePermissionUI() {
         authBtn.innerHTML = `<i data-lucide="key-round" class="ui-icon"></i> 账号登录`; if(window.lucide) lucide.createIcons();
         authBtn.className = 'auth-btn';
     } else {
-        authBtn.innerHTML = `<i data-lucide="user-check" class="ui-icon"></i> ${currentUser.username} (${currentUser.role}) · 退出`; if(window.lucide) lucide.createIcons();
+        authBtn.innerHTML = `<i data-lucide="user-check" class="ui-icon"></i> ${escapeHtml(currentUser.username)} (${escapeHtml(currentUser.role)}) · 退出`; if(window.lucide) lucide.createIcons();
         authBtn.className = 'auth-btn logged-in';
     }
     
@@ -2086,7 +2087,7 @@ function renderImagePreviews() {
 }
 
 // ================= 通用工具 =================
-function escapeHtml(s){if(!s)return '';return String(s).replace(/[&<>]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[m]));}
+function escapeHtml(s){if(!s)return '';return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
 function parseDateInput(str){if(!str||!str.trim())return null;str=str.trim();let m=str.match(/^(\d{4})[\/\-.](\d{1,2})[\/\-.](\d{1,2})$/);if(m){const y=+m[1],mo=+m[2],d=+m[3];if(mo>=1&&mo<=12&&d>=1&&d<=31)return new Date(y,mo-1,d);}m=str.match(/^(\d{4})年(\d{1,2})月(\d{1,2})日$/);if(m){const y=+m[1],mo=+m[2],d=+m[3];if(mo>=1&&mo<=12&&d>=1&&d<=31)return new Date(y,mo-1,d);}return null;}
 function formatDate(d){return `${d.getFullYear()}年${d.getMonth()+1}月${d.getDate()}日`;}
 function getEffectiveDate(custom){return custom?(parseDateInput(custom)||new Date()):new Date();}
@@ -3337,10 +3338,10 @@ async function viewRecImages(id){
     showToast('正在加载图片凭证...','info');
     const imgs=await fetchRecordImagesOnDemand(id);
     if(!imgs||!imgs.length){showToast('该记录没有附件图片或签名','info');return;}
-    $('imageViewerContent').innerHTML=`<div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;max-height:70vh;overflow:auto;">${imgs.map(s=>`<img src="${s}" class="image-viewer-large" style="max-width:280px;max-height:280px;cursor:zoom-in;" onclick="window.__zoomImg(this.src)" />`).join('')}</div><button class="image-viewer-close" onclick="document.getElementById('imageViewerModal').classList.remove('active')">关闭</button>`;
+    $('imageViewerContent').innerHTML=`<div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;max-height:70vh;overflow:auto;">${imgs.map(s=>`<img src="${escapeHtml(s)}" class="image-viewer-large" style="max-width:280px;max-height:280px;cursor:zoom-in;" onclick="window.__zoomImg(this.src)" />`).join('')}</div><button class="image-viewer-close" onclick="document.getElementById('imageViewerModal').classList.remove('active')">关闭</button>`;
     $('imageViewerModal').classList.add('active');
 }
-window.__zoomImg=function(src){$('imageViewerContent').innerHTML=`<img class="image-viewer-large" src="${src}" /><button class="image-viewer-close" onclick="document.getElementById('imageViewerModal').classList.remove('active')">关闭</button>`;};
+window.__zoomImg=function(src){$('imageViewerContent').innerHTML=`<img class="image-viewer-large" src="${escapeHtml(src)}" /><button class="image-viewer-close" onclick="document.getElementById('imageViewerModal').classList.remove('active')">关闭</button>`;};
 
 // ================= 表单与操作 =================
 function clearForm(){
@@ -3545,9 +3546,9 @@ function renderUserTable(){
         return `<tr>
             <td>${escapeHtml(u.username)}</td>
             <td>${escapeHtml(u.fullname||'-')}</td>
-            <td><span class="role-badge ${roleClass}">${u.role}</span></td>
+            <td><span class="role-badge ${roleClass}">${escapeHtml(u.role)}</span></td>
             <td>${getUserPresenceHtml(u)}</td>
-            <td><span style="color:${u.status==='正常'?'var(--green)':'var(--red)'};font-weight:600;">${u.status||'正常'}</span></td>
+            <td><span style="color:${u.status==='正常'?'var(--green)':'var(--red)'};font-weight:600;">${escapeHtml(u.status||'正常')}</span></td>
             <td>${btns}</td>
         </tr>`;
     }).join('');
