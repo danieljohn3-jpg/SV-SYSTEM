@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes, viewport-fit=cover" />
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="theme-color" content="#eceff5">
+<meta name="theme-color" content="#e9ecfb">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="format-detection" content="telephone=no, email=no" />
 <meta name="mobile-web-app-capable" content="yes" />
@@ -22,6 +22,7 @@
     'html2pdf.bundle.min.js': 'https://unpkg.com/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js',
     'html2canvas.min.js': 'https://unpkg.com/html2canvas@1.4.1/dist/html2canvas.min.js',
     'echarts.min.js': 'https://unpkg.com/echarts@5.4.3/dist/echarts.min.js',
+    'qrcode-generator': 'https://unpkg.com/qrcode-generator@1.4.4/qrcode.js',
     'html5-qrcode.min.js': 'https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js'
   };
   window.addEventListener('error', function(e){
@@ -46,8 +47,11 @@
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
 <link rel="dns-prefetch" href="https://clszyancqqsoswtoszca.supabase.co">
 <link rel="preconnect" href="https://clszyancqqsoswtoszca.supabase.co" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap"></noscript>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Audiowide&family=Rajdhani:wght@600;700&family=Montserrat:wght@700;900&family=Playfair+Display:wght@700;900&family=Cinzel:wght@700;900&family=Poppins:wght@600;800&family=Noto+Sans+SC:wght@500;700;900&family=Noto+Serif+SC:wght@600;900&family=Ma+Shan+Zheng&family=ZCOOL+XiaoWei&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Audiowide&family=Rajdhani:wght@600;700&family=Montserrat:wght@700;900&family=Playfair+Display:wght@700;900&family=Cinzel:wght@700;900&family=Poppins:wght@600;800&family=Noto+Sans+SC:wght@500;700;900&family=Noto+Serif+SC:wght@600;900&family=Ma+Shan+Zheng&family=ZCOOL+XiaoWei&display=swap"></noscript>
 <style>
@@ -898,6 +902,76 @@ html, body { max-width: 100vw; overflow-x: hidden; -webkit-text-size-adjust: 100
 }
 
 </style>
+<style id="theme-v35">
+/* ===== Theme V35 · 薰衣草毛玻璃仪表盘（仅换皮，不改功能） ===== */
+:root{--bg-0:#e9ecfb;--bg-1:#fff;--bg-2:#f3f4fd;--bg-3:#e7e9f9;--bg-4:#d6daf2;--border:rgba(45,55,130,.09);--border-hi:rgba(45,55,130,.16);--border-strong:rgba(45,55,130,.26);--text-0:#0f1330;--text-1:#363a63;--text-2:#6a6e94;--text-3:#a0a4c4;--accent:#3956f0;--accent-hi:#4d69ff;--accent-soft:rgba(57,86,240,.1);--shadow-sm:0 1px 2px rgba(45,55,130,.05),0 2px 8px rgba(45,55,130,.05);--shadow-md:0 10px 30px rgba(45,55,130,.08),0 2px 6px rgba(45,55,130,.04);--shadow-lg:0 24px 60px rgba(45,55,130,.16),0 6px 16px rgba(45,55,130,.06);--glass-bg:rgba(255,255,255,.72);--glass-border:rgba(255,255,255,.85);--rail:linear-gradient(180deg,#252d78,#171c52 62%,#0f1338)}
+body.dark-mode{--bg-0:#0c0f24;--bg-1:#151936;--bg-2:#1c2145;--bg-3:#262c58;--bg-4:#323a6c;--border:rgba(160,170,255,.1);--border-hi:rgba(160,170,255,.18);--border-strong:rgba(160,170,255,.3);--text-0:#f1f2ff;--text-1:#cfd2f3;--text-2:#9da2cf;--text-3:#6f759f;--accent:#6f86ff;--accent-hi:#8a9cff;--accent-soft:rgba(111,134,255,.18);--glass-bg:rgba(21,25,54,.78);--glass-border:rgba(160,170,255,.1);--shadow-md:0 10px 30px rgba(0,0,0,.35);--shadow-lg:0 24px 60px rgba(0,0,0,.5)}
+*{font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'PingFang SC','Noto Sans SC','Microsoft YaHei','Segoe UI',sans-serif}
+body{background:#e9ecfb;background-image:radial-gradient(60% 45% at 18% 0,rgba(120,140,255,.30),transparent 70%),radial-gradient(45% 40% at 95% 12%,rgba(190,165,255,.26),transparent 70%),radial-gradient(50% 40% at 70% 100%,rgba(150,185,255,.22),transparent 70%),linear-gradient(180deg,#eef0fd,#e5e8fa);background-attachment:fixed}
+body.dark-mode{background:#0c0f24;background-image:radial-gradient(60% 45% at 18% 0,rgba(80,100,255,.18),transparent 70%),radial-gradient(45% 40% at 95% 12%,rgba(150,110,255,.14),transparent 70%)}
+
+/* 顶栏：悬浮毛玻璃 */
+.glass-container .excel-header{background:var(--glass-bg);backdrop-filter:blur(24px) saturate(160%);-webkit-backdrop-filter:blur(24px) saturate(160%);border-bottom:1px solid var(--glass-border);box-shadow:0 8px 28px rgba(45,55,130,.08)}
+body.dark-mode .glass-container .excel-header{box-shadow:0 8px 28px rgba(0,0,0,.35)}
+.logo-seventeen{background-image:linear-gradient(120deg,#2b47e0,#6a7cff,#8b5cf6,#2b47e0);filter:none}
+.logo-sub{font-family:'Instrument Serif','Noto Serif SC',serif;font-style:italic;font-weight:400;text-transform:none;letter-spacing:.14em;background-image:linear-gradient(90deg,#3956f0,#7b6cf6,#3956f0)}
+.auth-btn{border-radius:999px;background:#fff;color:var(--text-0);border:1px solid var(--border);box-shadow:var(--shadow-sm)}
+body.dark-mode .auth-btn{background:var(--bg-2)}
+.auth-btn.logged-in{background:var(--accent-soft);color:var(--accent);border-color:transparent}
+.header-contact{border-radius:999px;background:#fff}
+
+/* 导航：手机/平板为胶囊横条 */
+.menu-bar{background:var(--glass-bg);border-bottom:1px solid var(--glass-border)}
+.menu-bar .menu-item{margin:7px 2px;padding:9px 16px;border-radius:999px;border-bottom:none;font-weight:600;color:var(--text-2)}
+.menu-bar .menu-item:hover{background:var(--accent-soft);color:var(--accent)}
+.menu-bar .menu-item.active{background:#fff;color:var(--accent);box-shadow:var(--shadow-sm)}
+body.dark-mode .menu-bar .menu-item.active{background:var(--bg-3)}
+
+/* 导航：桌面端为左侧深蓝悬浮胶囊栏 */
+@media(min-width:1024px){
+.glass-container .excel-header{top:14px;left:104px;right:16px;width:auto;border-radius:24px;padding:10px 22px;border:1px solid var(--glass-border)}
+#appContainer{padding-left:92px}
+.menu-bar{top:14px;left:14px;right:auto;bottom:14px;width:70px;height:auto;flex-direction:column;align-items:center;gap:4px;padding:18px 7px;border:none;border-radius:35px;background:var(--rail);box-shadow:0 20px 44px rgba(25,32,110,.36);overflow-x:hidden;overflow-y:auto;white-space:normal;z-index:1001}
+.menu-bar .menu-item{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:56px;margin:0;padding:10px 2px;border-radius:20px;font-size:10px;line-height:1.25;font-weight:600;text-align:center;color:rgba(255,255,255,.62);word-break:break-all}
+.menu-bar .menu-item .ui-icon{width:20px;height:20px}
+.menu-bar .menu-item:hover{background:rgba(255,255,255,.13);color:#fff}
+.menu-bar .menu-item.active{background:#fff;color:#2b3bd4;box-shadow:0 8px 20px rgba(0,0,0,.25)}
+#navUserAdmin:not([style*="none"]){display:flex!important}
+.menu-bar .menu-sep{width:28px;height:1px;margin:8px 0;background:rgba(255,255,255,.2)}
+}
+
+/* 卡片 */
+.form-card,.about-section,.settings-card{border-radius:24px;background:var(--glass-bg);border:1px solid var(--glass-border);box-shadow:var(--shadow-md)}
+.form-card h2,.about-section h2,.settings-card h2{font-size:20px;font-weight:800;letter-spacing:-.02em;color:var(--text-0)}
+.stats-panel .stat-item,.report-card,.report-chart-card,.qr-card{border-radius:22px;background:var(--bg-1);border:1px solid var(--glass-border);box-shadow:var(--shadow-md)}
+.stat-number,.report-card .report-card-value{font-weight:800;letter-spacing:-.03em}
+
+/* 按钮 */
+.btn-primary,.btn-modal-primary{background:linear-gradient(180deg,#5873ff,#3452f0);color:#fff;border:none;border-radius:999px;box-shadow:0 8px 20px rgba(52,82,240,.32)}
+.btn-primary:hover,.btn-modal-primary:hover{filter:brightness(1.07);transform:translateY(-1px)}
+.btn-secondary,.btn-modal-cancel,.btn-excel,.btn-pdf,.btn-print{border-radius:999px}
+.btn-secondary,.btn-modal-cancel{background:#fff;color:var(--text-0);border:1px solid var(--border-hi)}
+body.dark-mode .btn-secondary,body.dark-mode .btn-modal-cancel{background:var(--bg-2)}
+.action-btn,.q-pill,.ws-tab,.badge,.role-badge,.serial-tag,.audit-type-badge{border-radius:999px}
+.ws-tab.active{background:#fff;color:var(--accent);box-shadow:var(--shadow-sm)}
+body.dark-mode .ws-tab.active{background:var(--bg-3)}
+
+/* 输入控件 */
+.form-grid input,.form-grid select,.form-grid textarea,.search-filter-bar input,.search-filter-bar select,.audit-bar input,.audit-bar select,.excel-filter-bar input,.excel-filter-bar select,.autocomplete-wrap input,.custom-select-trigger,.date-input-group{border-radius:14px;background:rgba(255,255,255,.92);border:1px solid var(--border-hi)}
+body.dark-mode .form-grid input,body.dark-mode .form-grid select,body.dark-mode .form-grid textarea,body.dark-mode .search-filter-bar input,body.dark-mode .custom-select-trigger,body.dark-mode .date-input-group{background:var(--bg-2)}
+.form-grid input:focus,.form-grid select:focus,.form-grid textarea:focus,.custom-select-trigger:focus,.date-input-group:focus-within{border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+
+/* 表格 */
+.table-wrapper{border-radius:22px;border:1px solid var(--border);background:var(--bg-1);box-shadow:var(--shadow-md);overflow:auto}
+.records-table th,.audit-table th{background:var(--bg-2);color:var(--text-2);font-weight:700;letter-spacing:.02em}
+
+/* 弹窗与下拉 */
+.modal-overlay{background:rgba(18,22,70,.40);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.common-modal,.excel-modal,.report-modal,.lifecycle-modal{border-radius:28px;border:1px solid var(--glass-border);box-shadow:0 32px 80px rgba(30,40,120,.30)}
+.custom-select-menu,.custom-ac-dropdown,.custom-cal-popover,.action-popover-menu{border-radius:18px;box-shadow:var(--shadow-lg);border:1px solid var(--border)}
+.contact-grid>div{flex:1 1 220px;max-width:100%}
+@media(max-width:600px){.contact-grid{gap:14px!important}.contact-grid>div{flex-basis:100%}}
+</style>
 </head>
 <body>
 <div id="globalActionMenu" class="action-popover-menu"></div>
@@ -1137,14 +1211,14 @@ html, body { max-width: 100vw; overflow-x: hidden; -webkit-text-size-adjust: 100
 </ul>
 
 <h3><i data-lucide="headset" class="ui-icon" style="color:var(--accent);"></i> 技术支持与联系我们</h3>
-<div style="margin-top:16px;display:flex;align-items:stretch;gap:24px;flex-wrap:wrap;">
+<div class="contact-grid" style="margin-top:16px;display:flex;align-items:stretch;gap:24px;flex-wrap:wrap;">
   <div style="background:var(--bg-1);border:1px solid var(--border);border-radius:16px;padding:18px 20px;min-width:205px;">
     <h4 style="margin:0 0 8px;display:flex;align-items:center;gap:8px;color:#07C160;">
       <svg style="width:22px;height:22px;fill:#07C160;flex-shrink:0;" viewBox="0 0 24 24"><path d="M8.69 15.22c-.42 0-.83-.05-1.22-.14l-2.62 1.35.72-2.25C4.01 13.06 3 11.35 3 9.43 3 5.88 6.36 3 10.5 3c3.79 0 6.93 2.42 7.43 5.56-.48-.08-.98-.12-1.49-.12-4.26 0-7.72 2.94-7.72 6.56 0 .07.01.15.01.22-.01 0-.02 0-.04 0zm-1.19-8.4c-.56 0-1.02.45-1.02 1.01 0 .56.46 1.01 1.02 1.01.56 0 1.01-.45 1.01-1.01 0-.56-.45-1.01-1.01-1.01zm5.75 0c-.56 0-1.01.45-1.01 1.01 0 .56.45 1.01 1.01 1.01.56 0 1.02-.45 1.02-1.01 0-.56-.46-1.01-1.02-1.01zM21 14.98c0-3.03-2.92-5.49-6.52-5.49-3.6 0-6.52 2.46-6.52 5.49 0 3.03 2.92 5.49 6.52 5.49.76 0 1.49-.11 2.17-.32l2.19 1.13-.6-1.88C19.99 18.42 21 16.81 21 14.98zm-8.65-.89c-.46 0-.84-.37-.84-.84 0-.46.38-.84.84-.84.47 0 .84.38.84.84 0 .47-.37.84-.84.84zm4.32 0c-.47 0-.84-.37-.84-.84 0-.46.37-.84.84-.84.46 0 .84.38.84.84 0 .47-.38.84-.84.84z"/></svg>
       <span>微信 WeChat</span>
     </h4>
     <p style="font-size:13px;margin-bottom:10px;">微信号：<strong>L666698135</strong></p>
-    <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://u.wechat.com/kAjkIj_9LijljuiYXpgMWhA?s=2&color=07C160" style="width:150px;height:150px;border-radius:12px;" alt="微信二维码" />
+    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNyAzNyIgc2hhcGUtcmVuZGVyaW5nPSJjcmlzcEVkZ2VzIj48cmVjdCB3aWR0aD0iMzciIGhlaWdodD0iMzciIGZpbGw9IiNmZmYiLz48cGF0aCBmaWxsPSIjMDdBMDRGIiBkPSJNNCA0aDd2MWgtN3pNMTQgNGgxdjFoLTF6TTE2IDRoNXYxaC01ek0yMiA0aDF2MWgtMXpNMjQgNGgxdjFoLTF6TTI2IDRoN3YxaC03ek00IDVoMXYxaC0xek0xMCA1aDF2MWgtMXpNMTIgNWgxdjFoLTF6TTE0IDVoMXYxaC0xek0xOSA1aDJ2MWgtMnpNMjIgNWgxdjFoLTF6TTI0IDVoMXYxaC0xek0yNiA1aDF2MWgtMXpNMzIgNWgxdjFoLTF6TTQgNmgxdjFoLTF6TTYgNmgzdjFoLTN6TTEwIDZoMXYxaC0xek0xNiA2aDF2MWgtMXpNMTggNmgydjFoLTJ6TTIzIDZoMXYxaC0xek0yNiA2aDF2MWgtMXpNMjggNmgzdjFoLTN6TTMyIDZoMXYxaC0xek00IDdoMXYxaC0xek02IDdoM3YxaC0zek0xMCA3aDF2MWgtMXpNMTIgN2gzdjFoLTN6TTE2IDdoMXYxaC0xek0xOCA3aDF2MWgtMXpNMjEgN2gxdjFoLTF6TTIzIDdoMXYxaC0xek0yNiA3aDF2MWgtMXpNMjggN2gzdjFoLTN6TTMyIDdoMXYxaC0xek00IDhoMXYxaC0xek02IDhoM3YxaC0zek0xMCA4aDF2MWgtMXpNMTMgOGgxdjFoLTF6TTE3IDhoMnYxaC0yek0yMCA4aDV2MWgtNXpNMjYgOGgxdjFoLTF6TTI4IDhoM3YxaC0zek0zMiA4aDF2MWgtMXpNNCA5aDF2MWgtMXpNMTAgOWgxdjFoLTF6TTEyIDloMnYxaC0yek0xNSA5aDJ2MWgtMnpNMTkgOWg0djFoLTR6TTI0IDloMXYxaC0xek0yNiA5aDF2MWgtMXpNMzIgOWgxdjFoLTF6TTQgMTBoN3YxaC03ek0xMiAxMGgxdjFoLTF6TTE0IDEwaDF2MWgtMXpNMTYgMTBoMXYxaC0xek0xOCAxMGgxdjFoLTF6TTIwIDEwaDF2MWgtMXpNMjIgMTBoMXYxaC0xek0yNCAxMGgxdjFoLTF6TTI2IDEwaDd2MWgtN3pNMTMgMTFoM3YxaC0zek0xOSAxMWgydjFoLTJ6TTIyIDExaDN2MWgtM3pNNCAxMmg1djFoLTV6TTEwIDEyaDR2MWgtNHpNMTUgMTJoN3YxaC03ek0yMyAxMmgxdjFoLTF6TTI1IDEyaDF2MWgtMXpNMjcgMTJoMXYxaC0xek0yOSAxMmgxdjFoLTF6TTMxIDEyaDF2MWgtMXpNNCAxM2g0djFoLTR6TTkgMTNoMXYxaC0xek0xNCAxM2gxdjFoLTF6TTE2IDEzaDF2MWgtMXpNMTggMTNoMXYxaC0xek0yMCAxM2g0djFoLTR6TTI1IDEzaDR2MWgtNHpNMzIgMTNoMXYxaC0xek02IDE0aDJ2MWgtMnpNMTAgMTRoM3YxaC0zek0xNCAxNGgxdjFoLTF6TTE2IDE0aDF2MWgtMXpNMTkgMTRoMXYxaC0xek0yMSAxNGgydjFoLTJ6TTI0IDE0aDJ2MWgtMnpNMjcgMTRoMnYxaC0yek02IDE1aDJ2MWgtMnpNMTEgMTVoMnYxaC0yek0xNSAxNWgydjFoLTJ6TTI0IDE1aDF2MWgtMXpNMjYgMTVoNHYxaC00ek0zMSAxNWgxdjFoLTF6TTQgMTZoMnYxaC0yek04IDE2aDR2MWgtNHpNMTMgMTZoMnYxaC0yek0xNyAxNmgydjFoLTJ6TTIzIDE2aDF2MWgtMXpNMjkgMTZoMnYxaC0yek02IDE3aDF2MWgtMXpNOCAxN2gydjFoLTJ6TTExIDE3aDJ2MWgtMnpNMTUgMTdoMnYxaC0yek0yMCAxN2g5djFoLTl6TTMyIDE3aDF2MWgtMXpNNCAxOGgzdjFoLTN6TTggMThoMXYxaC0xek0xMCAxOGgxdjFoLTF6TTE0IDE4aDF2MWgtMXpNMTcgMThoM3YxaC0zek0yMiAxOGgxdjFoLTF6TTI0IDE4aDR2MWgtNHpNMjkgMThoMnYxaC0yek00IDE5aDJ2MWgtMnpNNyAxOWgxdjFoLTF6TTExIDE5aDF2MWgtMXpNMTggMTloM3YxaC0zek0yMyAxOWgzdjFoLTN6TTI3IDE5aDJ2MWgtMnpNMzEgMTloMXYxaC0xek0xMCAyMGgxdjFoLTF6TTE1IDIwaDF2MWgtMXpNMTggMjBoMXYxaC0xek0yMSAyMGgxdjFoLTF6TTIzIDIwaDF2MWgtMXpNMjcgMjBoMXYxaC0xek0yOSAyMGgydjFoLTJ6TTQgMjFoNHYxaC00ek0xMiAyMWg2djFoLTZ6TTIwIDIxaDl2MWgtOXpNMzAgMjFoMXYxaC0xek0zMiAyMWgxdjFoLTF6TTQgMjJoMXYxaC0xek02IDIyaDN2MWgtM3pNMTAgMjJoMnYxaC0yek0xOCAyMmgydjFoLTJ6TTIxIDIyaDJ2MWgtMnpNMjQgMjJoMnYxaC0yek0zMCAyMmgxdjFoLTF6TTQgMjNoMXYxaC0xek04IDIzaDJ2MWgtMnpNMTMgMjNoMXYxaC0xek0xNSAyM2gydjFoLTJ6TTE4IDIzaDF2MWgtMXpNMjIgMjNoMnYxaC0yek0yNyAyM2gxdjFoLTF6TTMxIDIzaDF2MWgtMXpNNCAyNGgzdjFoLTN6TTggMjRoNHYxaC00ek0xNCAyNGgxdjFoLTF6TTE4IDI0aDF2MWgtMXpNMjQgMjRoNXYxaC01ek0zMCAyNGgzdjFoLTN6TTEyIDI1aDJ2MWgtMnpNMTUgMjVoMXYxaC0xek0xOCAyNWgxdjFoLTF6TTIwIDI1aDJ2MWgtMnpNMjQgMjVoMXYxaC0xek0yOCAyNWg1djFoLTV6TTQgMjZoN3YxaC03ek0xMiAyNmgxdjFoLTF6TTE0IDI2aDF2MWgtMXpNMTcgMjZoNXYxaC01ek0yMyAyNmgydjFoLTJ6TTI2IDI2aDF2MWgtMXpNMjggMjZoM3YxaC0zek00IDI3aDF2MWgtMXpNMTAgMjdoMXYxaC0xek0xMyAyN2gzdjFoLTN6TTE4IDI3aDJ2MWgtMnpNMjMgMjdoMnYxaC0yek0yOCAyN2gxdjFoLTF6TTMxIDI3aDF2MWgtMXpNNCAyOGgxdjFoLTF6TTYgMjhoM3YxaC0zek0xMCAyOGgxdjFoLTF6TTEyIDI4aDF2MWgtMXpNMTUgMjhoMXYxaC0xek0xNyAyOGgydjFoLTJ6TTIxIDI4aDJ2MWgtMnpNMjQgMjhoNXYxaC01ek0zMCAyOGgydjFoLTJ6TTQgMjloMXYxaC0xek02IDI5aDN2MWgtM3pNMTAgMjloMXYxaC0xek0xMiAyOWgydjFoLTJ6TTE1IDI5aDN2MWgtM3pNMjAgMjloMnYxaC0yek0yNCAyOWgxdjFoLTF6TTI5IDI5aDJ2MWgtMnpNMzIgMjloMXYxaC0xek00IDMwaDF2MWgtMXpNNiAzMGgzdjFoLTN6TTEwIDMwaDF2MWgtMXpNMTIgMzBoMXYxaC0xek0xNCAzMGgxdjFoLTF6TTE5IDMwaDF2MWgtMXpNMjIgMzBoM3YxaC0zek0yNiAzMGgxdjFoLTF6TTI4IDMwaDR2MWgtNHpNNCAzMWgxdjFoLTF6TTEwIDMxaDF2MWgtMXpNMTIgMzFoMXYxaC0xek0xNiAzMWgxdjFoLTF6TTE5IDMxaDJ2MWgtMnpNMjQgMzFoMXYxaC0xek0yNyAzMWgzdjFoLTN6TTMxIDMxaDF2MWgtMXpNNCAzMmg3djFoLTd6TTEyIDMyaDJ2MWgtMnpNMTYgMzJoMXYxaC0xek0xOCAzMmgxdjFoLTF6TTI1IDMyaDF2MWgtMXpNMjcgMzJoNHYxaC00eiIvPjwvc3ZnPg==" style="width:150px;height:150px;border-radius:12px;display:block;background:#fff;" alt="微信二维码" />
   </div>
   <div style="background:var(--bg-1);border:1px solid var(--border);border-radius:16px;padding:18px 20px;min-width:205px;">
     <h4 style="margin:0 0 8px;display:flex;align-items:center;gap:8px;color:#229ED9;">
@@ -1152,7 +1226,15 @@ html, body { max-width: 100vw; overflow-x: hidden; -webkit-text-size-adjust: 100
       <span>Telegram</span>
     </h4>
     <p style="font-size:13px;margin-bottom:10px;">账号：<strong>@SEVENTEEN_SHIQI17</strong></p>
-    <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://t.me/SEVENTEEN_SHIQI17&color=229ED9" style="width:150px;height:150px;border-radius:12px;" alt="Telegram二维码" />
+    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMyAzMyIgc2hhcGUtcmVuZGVyaW5nPSJjcmlzcEVkZ2VzIj48cmVjdCB3aWR0aD0iMzMiIGhlaWdodD0iMzMiIGZpbGw9IiNmZmYiLz48cGF0aCBmaWxsPSIjMUI4NkJEIiBkPSJNNCA0aDd2MWgtN3pNMTIgNGgydjFoLTJ6TTE2IDRoMXYxaC0xek0xOCA0aDJ2MWgtMnpNMjIgNGg3djFoLTd6TTQgNWgxdjFoLTF6TTEwIDVoMXYxaC0xek0xMyA1aDJ2MWgtMnpNMjAgNWgxdjFoLTF6TTIyIDVoMXYxaC0xek0yOCA1aDF2MWgtMXpNNCA2aDF2MWgtMXpNNiA2aDN2MWgtM3pNMTAgNmgxdjFoLTF6TTEzIDZoMXYxaC0xek0xNiA2aDJ2MWgtMnpNMTkgNmgxdjFoLTF6TTIyIDZoMXYxaC0xek0yNCA2aDN2MWgtM3pNMjggNmgxdjFoLTF6TTQgN2gxdjFoLTF6TTYgN2gzdjFoLTN6TTEwIDdoMXYxaC0xek0xNCA3aDF2MWgtMXpNMjAgN2gxdjFoLTF6TTIyIDdoMXYxaC0xek0yNCA3aDN2MWgtM3pNMjggN2gxdjFoLTF6TTQgOGgxdjFoLTF6TTYgOGgzdjFoLTN6TTEwIDhoMXYxaC0xek0xNiA4aDF2MWgtMXpNMTkgOGgydjFoLTJ6TTIyIDhoMXYxaC0xek0yNCA4aDN2MWgtM3pNMjggOGgxdjFoLTF6TTQgOWgxdjFoLTF6TTEwIDloMXYxaC0xek0xMyA5aDF2MWgtMXpNMTUgOWgxdjFoLTF6TTE4IDloMXYxaC0xek0yMCA5aDF2MWgtMXpNMjIgOWgxdjFoLTF6TTI4IDloMXYxaC0xek00IDEwaDd2MWgtN3pNMTIgMTBoMXYxaC0xek0xNCAxMGgxdjFoLTF6TTE2IDEwaDF2MWgtMXpNMTggMTBoMXYxaC0xek0yMCAxMGgxdjFoLTF6TTIyIDEwaDd2MWgtN3pNMTIgMTFoMnYxaC0yek0xNiAxMWg1djFoLTV6TTQgMTJoMnYxaC0yek03IDEyaDJ2MWgtMnpNMTAgMTJoMXYxaC0xek0xMyAxMmgxdjFoLTF6TTE1IDEyaDV2MWgtNXpNMjIgMTJoMXYxaC0xek0yOCAxMmgxdjFoLTF6TTYgMTNoMXYxaC0xek05IDEzaDF2MWgtMXpNMTEgMTNoMXYxaC0xek0xNCAxM2gxdjFoLTF6TTE4IDEzaDF2MWgtMXpNMjQgMTNoNHYxaC00ek01IDE0aDF2MWgtMXpNOCAxNGgzdjFoLTN6TTEyIDE0aDJ2MWgtMnpNMTUgMTRoMXYxaC0xek0xOSAxNGgydjFoLTJ6TTI0IDE0aDJ2MWgtMnpNMjggMTRoMXYxaC0xek02IDE1aDN2MWgtM3pNMTIgMTVoMXYxaC0xek0xNSAxNWgydjFoLTJ6TTE4IDE1aDF2MWgtMXpNMjEgMTVoMXYxaC0xek0yMyAxNWgxdjFoLTF6TTI1IDE1aDR2MWgtNHpNNCAxNmgydjFoLTJ6TTEwIDE2aDF2MWgtMXpNMTIgMTZoNHYxaC00ek0xNyAxNmgxdjFoLTF6TTE5IDE2aDJ2MWgtMnpNMjIgMTZoMXYxaC0xek0yOCAxNmgxdjFoLTF6TTQgMTdoM3YxaC0zek0xMSAxN2g0djFoLTR6TTE3IDE3aDJ2MWgtMnpNMjAgMTdoMXYxaC0xek0yNCAxN2gxdjFoLTF6TTI3IDE3aDF2MWgtMXpNNCAxOGgydjFoLTJ6TTggMThoM3YxaC0zek0xMiAxOGgxdjFoLTF6TTE3IDE4aDN2MWgtM3pNMjEgMThoMXYxaC0xek0yNCAxOGg1djFoLTV6TTQgMTloMXYxaC0xek05IDE5aDF2MWgtMXpNMTIgMTloMXYxaC0xek0xNCAxOWgxdjFoLTF6TTE2IDE5aDF2MWgtMXpNMTkgMTloNXYxaC01ek0yNSAxOWgydjFoLTJ6TTI4IDE5aDF2MWgtMXpNNCAyMGgzdjFoLTN6TTkgMjBoNHYxaC00ek0xNCAyMGgxdjFoLTF6TTE2IDIwaDF2MWgtMXpNMTkgMjBoNnYxaC02ek0yNiAyMGgydjFoLTJ6TTEyIDIxaDJ2MWgtMnpNMTUgMjFoMXYxaC0xek0xNyAyMWgxdjFoLTF6TTE5IDIxaDJ2MWgtMnpNMjQgMjFoMXYxaC0xek0yNiAyMWgydjFoLTJ6TTQgMjJoN3YxaC03ek0xMyAyMmgxdjFoLTF6TTE1IDIyaDJ2MWgtMnpNMTkgMjJoMnYxaC0yek0yMiAyMmgxdjFoLTF6TTI0IDIyaDF2MWgtMXpNMjggMjJoMXYxaC0xek00IDIzaDF2MWgtMXpNMTAgMjNoMXYxaC0xek0xNCAyM2gxdjFoLTF6TTE2IDIzaDV2MWgtNXpNMjQgMjNoMXYxaC0xek00IDI0aDF2MWgtMXpNNiAyNGgzdjFoLTN6TTEwIDI0aDF2MWgtMXpNMTIgMjRoMTN2MWgtMTN6TTI3IDI0aDF2MWgtMXpNNCAyNWgxdjFoLTF6TTYgMjVoM3YxaC0zek0xMCAyNWgxdjFoLTF6TTEyIDI1aDF2MWgtMXpNMTQgMjVoMXYxaC0xek0xNyAyNWgxdjFoLTF6TTE5IDI1aDF2MWgtMXpNMjEgMjVoMnYxaC0yek0yNyAyNWgydjFoLTJ6TTQgMjZoMXYxaC0xek02IDI2aDN2MWgtM3pNMTAgMjZoMXYxaC0xek0xMyAyNmgxdjFoLTF6TTE1IDI2aDF2MWgtMXpNMTcgMjZoMXYxaC0xek0yMCAyNmgydjFoLTJ6TTI0IDI2aDV2MWgtNXpNNCAyN2gxdjFoLTF6TTEwIDI3aDF2MWgtMXpNMTIgMjdoMnYxaC0yek0xNiAyN2gxdjFoLTF6TTE4IDI3aDF2MWgtMXpNMjIgMjdoM3YxaC0zek0yNiAyN2gzdjFoLTN6TTQgMjhoN3YxaC03ek0xMiAyOGgydjFoLTJ6TTE1IDI4aDF2MWgtMXpNMTcgMjhoMXYxaC0xek0xOSAyOGgydjFoLTJ6TTIyIDI4aDF2MWgtMXpNMjUgMjhoMXYxaC0xek0yOCAyOGgxdjFoLTF6Ii8+PC9zdmc+" style="width:150px;height:150px;border-radius:12px;display:block;background:#fff;" alt="Telegram二维码" />
+  </div>
+  <div style="background:var(--bg-1);border:1px solid var(--border);border-radius:16px;padding:18px 20px;min-width:205px;">
+    <h4 style="margin:0 0 8px;display:flex;align-items:center;gap:8px;color:#7360F2;">
+      <svg style="width:22px;height:22px;fill:#7360F2;flex-shrink:0;" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6 2 11c0 2.4 1.1 4.6 2.9 6.2L4 22l4.6-2.3c1.1.3 2.2.5 3.4.5 5.5 0 10-4 10-9S17.5 2 12 2zm3.9 12.9c-.3.8-1.5 1.5-2.1 1.5-.5 0-1.3 0-3.3-1-2.4-1.1-4-3.7-4.1-3.9-.1-.1-1-1.3-1-2.5s.6-1.8.9-2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.4-.3.3c-.1.1-.2.3-.1.5.1.2.6 1 1.3 1.6.9.8 1.7 1 1.9 1.1.2.1.4.1.5-.1l.7-.9c.2-.2.4-.2.6-.1l1.9.9c.2.1.4.2.4.3.1.2.1.8-.2 1.6z"/></svg>
+      <span>Viber</span>
+    </h4>
+    <p style="font-size:13px;margin-bottom:10px;">Viber号：<strong><a href="viber://add?number=959689772298" style="color:inherit;text-decoration:none;">+959689772298</a></strong></p>
+    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMyAzMyIgc2hhcGUtcmVuZGVyaW5nPSJjcmlzcEVkZ2VzIj48cmVjdCB3aWR0aD0iMzMiIGhlaWdodD0iMzMiIGZpbGw9IiNmZmYiLz48cGF0aCBmaWxsPSIjNzM2MEYyIiBkPSJNNCA0aDd2MWgtN3pNMTIgNGgxdjFoLTF6TTE0IDRoM3YxaC0zek0xOCA0aDF2MWgtMXpNMjAgNGgxdjFoLTF6TTIyIDRoN3YxaC03ek00IDVoMXYxaC0xek0xMCA1aDF2MWgtMXpNMTUgNWgxdjFoLTF6TTE3IDVoMnYxaC0yek0yMCA1aDF2MWgtMXpNMjIgNWgxdjFoLTF6TTI4IDVoMXYxaC0xek00IDZoMXYxaC0xek02IDZoM3YxaC0zek0xMCA2aDF2MWgtMXpNMTIgNmgxdjFoLTF6TTE1IDZoMXYxaC0xek0xNyA2aDF2MWgtMXpNMjIgNmgxdjFoLTF6TTI0IDZoM3YxaC0zek0yOCA2aDF2MWgtMXpNNCA3aDF2MWgtMXpNNiA3aDN2MWgtM3pNMTAgN2gxdjFoLTF6TTEyIDdoMXYxaC0xek0xNyA3aDF2MWgtMXpNMTkgN2gxdjFoLTF6TTIyIDdoMXYxaC0xek0yNCA3aDN2MWgtM3pNMjggN2gxdjFoLTF6TTQgOGgxdjFoLTF6TTYgOGgzdjFoLTN6TTEwIDhoMXYxaC0xek0xMiA4aDN2MWgtM3pNMTcgOGgxdjFoLTF6TTE5IDhoMnYxaC0yek0yMiA4aDF2MWgtMXpNMjQgOGgzdjFoLTN6TTI4IDhoMXYxaC0xek00IDloMXYxaC0xek0xMCA5aDF2MWgtMXpNMTQgOWgxdjFoLTF6TTE3IDloMnYxaC0yek0yMCA5aDF2MWgtMXpNMjIgOWgxdjFoLTF6TTI4IDloMXYxaC0xek00IDEwaDd2MWgtN3pNMTIgMTBoMXYxaC0xek0xNCAxMGgxdjFoLTF6TTE2IDEwaDF2MWgtMXpNMTggMTBoMXYxaC0xek0yMCAxMGgxdjFoLTF6TTIyIDEwaDd2MWgtN3pNMTkgMTFoMXYxaC0xek00IDEyaDR2MWgtNHpNMTAgMTJoMXYxaC0xek0xMiAxMmgxdjFoLTF6TTE0IDEyaDF2MWgtMXpNMTYgMTJoMXYxaC0xek0yMCAxMmgydjFoLTJ6TTI0IDEyaDN2MWgtM3pNMjggMTJoMXYxaC0xek00IDEzaDZ2MWgtNnpNMTEgMTNoMXYxaC0xek0xNSAxM2g0djFoLTR6TTIwIDEzaDF2MWgtMXpNMjMgMTNoMXYxaC0xek0yNSAxM2gxdjFoLTF6TTUgMTRoMXYxaC0xek03IDE0aDF2MWgtMXpNOSAxNGg4djFoLTh6TTE4IDE0aDF2MWgtMXpNMjAgMTRoMXYxaC0xek0yMyAxNGgydjFoLTJ6TTI2IDE0aDF2MWgtMXpNNyAxNWgxdjFoLTF6TTEyIDE1aDd2MWgtN3pNMjMgMTVoMXYxaC0xek0yNSAxNWgzdjFoLTN6TTYgMTZoMXYxaC0xek0xMCAxNmgxdjFoLTF6TTEzIDE2aDJ2MWgtMnpNMTcgMTZoMXYxaC0xek0yMSAxNmgydjFoLTJ6TTI0IDE2aDN2MWgtM3pNNiAxN2gzdjFoLTN6TTExIDE3aDF2MWgtMXpNMTkgMTdoN3YxaC03ek0yNyAxN2gydjFoLTJ6TTUgMThoMXYxaC0xek03IDE4aDF2MWgtMXpNMTAgMThoMnYxaC0yek0xMyAxOGgxdjFoLTF6TTE2IDE4aDN2MWgtM3pNMjEgMThoMXYxaC0xek0yNCAxOGg0djFoLTR6TTQgMTloMXYxaC0xek02IDE5aDF2MWgtMXpNOCAxOWgydjFoLTJ6TTExIDE5aDF2MWgtMXpNMTMgMTloMXYxaC0xek0xNSAxOWgxdjFoLTF6TTE4IDE5aDN2MWgtM3pNMjIgMTloM3YxaC0zek00IDIwaDR2MWgtNHpNOSAyMGgzdjFoLTN6TTEzIDIwaDZ2MWgtNnpNMjAgMjBoN3YxaC03ek0xMiAyMWgxdjFoLTF6TTE0IDIxaDJ2MWgtMnpNMTggMjFoM3YxaC0zek0yNCAyMWgxdjFoLTF6TTI2IDIxaDN2MWgtM3pNNCAyMmg3djFoLTd6TTEzIDIyaDJ2MWgtMnpNMjAgMjJoMXYxaC0xek0yMiAyMmgxdjFoLTF6TTI0IDIyaDV2MWgtNXpNNCAyM2gxdjFoLTF6TTEwIDIzaDF2MWgtMXpNMTQgMjNoMnYxaC0yek0xOSAyM2gydjFoLTJ6TTI0IDIzaDF2MWgtMXpNMjggMjNoMXYxaC0xek00IDI0aDF2MWgtMXpNNiAyNGgzdjFoLTN6TTEwIDI0aDF2MWgtMXpNMTMgMjRoMXYxaC0xek0xNSAyNGgydjFoLTJ6TTIwIDI0aDZ2MWgtNnpNMjcgMjRoMnYxaC0yek00IDI1aDF2MWgtMXpNNiAyNWgzdjFoLTN6TTEwIDI1aDF2MWgtMXpNMTIgMjVoMnYxaC0yek0xNSAyNWgydjFoLTJ6TTE4IDI1aDN2MWgtM3pNMjIgMjVoMXYxaC0xek0yNCAyNWg1djFoLTV6TTQgMjZoMXYxaC0xek02IDI2aDN2MWgtM3pNMTAgMjZoMXYxaC0xek0xMiAyNmgxdjFoLTF6TTE0IDI2aDJ2MWgtMnpNMTcgMjZoMXYxaC0xek0xOSAyNmgydjFoLTJ6TTIyIDI2aDF2MWgtMXpNMjQgMjZoMXYxaC0xek0yNiAyNmgydjFoLTJ6TTQgMjdoMXYxaC0xek0xMCAyN2gxdjFoLTF6TTEyIDI3aDJ2MWgtMnpNMTcgMjdoMXYxaC0xek0yMSAyN2gydjFoLTJ6TTI0IDI3aDF2MWgtMXpNMjYgMjdoMXYxaC0xek00IDI4aDd2MWgtN3pNMTIgMjhoMXYxaC0xek0xNCAyOGgydjFoLTJ6TTE3IDI4aDF2MWgtMXpNMjEgMjhoMXYxaC0xek0yMyAyOGg2djFoLTZ6Ii8+PC9zdmc+" style="width:150px;height:150px;border-radius:12px;display:block;background:#fff;" alt="Viber二维码" />
   </div>
   <div style="background:var(--bg-1);border:1px solid var(--border);border-radius:16px;padding:18px 20px;min-width:220px;display:flex;flex-direction:column;justify-content:center;gap:12px;">
     <h4 style="margin:0;display:flex;align-items:center;gap:8px;color:var(--text-0);"><i data-lucide="mail" class="ui-icon" style="color:var(--accent);"></i> 邮箱与热线</h4>
@@ -1298,6 +1380,7 @@ html, body { max-width: 100vw; overflow-x: hidden; -webkit-text-size-adjust: 100
 <button type="button" class="ws-tab active" id="tabByDevice"><i data-lucide="package" class="ui-icon"></i> 按设备品类汇总</button>
 <button type="button" class="ws-tab" id="tabByWorkshop"><i data-lucide="factory" class="ui-icon"></i> 按车间/产线分布</button>
 </div>
+<button type="button" class="ws-tab" id="lowStockBtn" onclick="window.__setLowStock()">预警线</button>
 <input type="text" id="invSearchInput" placeholder="搜索设备名称/型号/车间..." />
 <select id="invStatusFilter">
 <option value="all">全部状态</option>
@@ -2407,7 +2490,7 @@ function renderInventoryModal() {
                 <td style="color:var(--orange);font-weight:600;">${item.unLend}</td>
                 <td style="color:var(--purple);font-weight:600;">${item.unBorrow}</td>
                 <td style="color:var(--red);font-weight:600;">${item.repairQty}</td>
-                <td><span class="${item.available > 0 ? 'inv-badge-ok' : 'inv-badge-low'}">${item.available} 台</span></td>
+                <td><span class="${item.available > lowStockLimit() ? 'inv-badge-ok' : 'inv-badge-low'}">${item.available} 台</span></td>
                 <td style="font-size:11px;color:var(--text-2);">${escapeHtml(item.locationText)}</td>
             </tr>
         `).join('') : '<tr><td colspan="9" style="text-align:center;padding:24px;color:var(--text-3);">暂无库存数据</td></tr>';
@@ -3034,7 +3117,7 @@ select option {
 window.__showSerialLifecycle = (sn) => {
     const list = allRecords.filter(r => parseSerialNumbers(r.serial_number).includes(sn)).sort((a,b) => a.rawTimestamp - b.rawTimestamp);
     if(!list.length) return showToast('未找到该序列号记录', 'warn');
-    const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=110x110&data=${encodeURIComponent(window.location.href.split('?')[0] + '?sn=' + sn)}`;
+    const qrUrl = window.__qr(window.location.href.split('?')[0] + '?sn=' + encodeURIComponent(sn)) || `https://api.qrserver.com/v1/create-qr-code/?size=110x110&data=${encodeURIComponent(window.location.href.split('?')[0] + '?sn=' + sn)}`;
     const events = list.map(r => `
         <div class="lc-event">
             <div style="display:flex;justify-content:space-between;align-items:center;">
@@ -3278,7 +3361,7 @@ document.addEventListener('scroll', () => {
 function renderTable(){
     const isLoggedIn = currentUser && currentUser.username !== '访客';
     if($('thActionCol')) $('thActionCol').style.display = isLoggedIn ? '' : 'none';
-    const data=getFiltered();const tbody=$('recordsBody');
+    const data=getFiltered().slice(0,recPageLimit);const tbody=$('recordsBody');
     if(!data.length){tbody.innerHTML=`<tr><td colspan="${isLoggedIn?11:10}" style="text-align:center;padding:24px;color:var(--text-3);">暂无记录</td></tr>`;return;}
     
     tbody.innerHTML=data.map(r=>{
@@ -3435,7 +3518,7 @@ async function delRec(id){
     try{
         await deleteRecord(id);
         await logAudit('delete', `删除记录：${r.device_name}`);
-        showToast('记录已删除');await refreshAll();
+        showToast('记录已删除');await refreshAll();showUndo(r);
     }catch(e){ showToast('删除失败','error'); }
 }
 
@@ -3490,7 +3573,7 @@ async function confirmReturn(){
 function showLifecycle(deviceName){
     const list=allRecords.filter(r=>r.device_name===deviceName).sort((a,b)=>a.rawTimestamp-b.rawTimestamp);
     if(!list.length){showToast('未找到该设备记录','warn');return;}
-    const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=110x110&data=${encodeURIComponent(window.location.href.split('?')[0] + '?device=' + deviceName)}`;
+    const qrUrl = window.__qr(window.location.href.split('?')[0] + '?device=' + encodeURIComponent(deviceName)) || `https://api.qrserver.com/v1/create-qr-code/?size=110x110&data=${encodeURIComponent(window.location.href.split('?')[0] + '?device=' + deviceName)}`;
     const events=list.map(r=>`
         <div class="lc-event">
             <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;">
@@ -5117,8 +5200,9 @@ function syncFrozenHeaderOffsets() {
   if (!header) return;
   const hHeight = header.offsetHeight;
   const mHeight = menu ? menu.offsetHeight : 0;
-  if (menu) menu.style.top = hHeight + 'px';
-  if (container) container.style.paddingTop = (hHeight + mHeight) + 'px';
+  const rail = window.matchMedia('(min-width:1024px)').matches;
+  if (menu) menu.style.top = rail ? '' : hHeight + 'px';
+  if (container) container.style.paddingTop = (rail ? hHeight + 28 : hHeight + mHeight) + 'px';
 }
 window.addEventListener('resize', syncFrozenHeaderOffsets);
 window.addEventListener('orientationchange', syncFrozenHeaderOffsets);
@@ -5130,6 +5214,42 @@ if (window.ResizeObserver) {
   if (mEl) ro.observe(mEl);
 }
 syncFrozenHeaderOffsets();
+
+
+// ===== 新增：本地二维码 / 删除撤销 / 分页 / 最低库存线 =====
+window.__qr=function(t){try{if(!window.qrcode)return '';const q=window.qrcode(0,'M');q.addData(t);q.make();return q.createDataURL(4,2);}catch(e){return '';}};
+let recPageLimit=100;
+const __renderTableOrig=renderTable;
+renderTable=function(){
+  __renderTableOrig();
+  const total=getFiltered().length,tb=$('recordsBody');
+  if(tb&&total>recPageLimit){
+    tb.insertAdjacentHTML('beforeend',`<tr><td colspan="11" style="text-align:center;padding:16px;"><button type="button" class="btn-secondary" id="loadMoreRows" style="padding:8px 22px;">加载更多（已显示 ${recPageLimit} / ${total} 条）</button></td></tr>`);
+    $('loadMoreRows').onclick=()=>{recPageLimit+=100;renderTable();};
+  }
+};
+function showUndo(r){
+  const old=document.getElementById('undoBar');if(old)old.remove();
+  const bar=document.createElement('div');bar.id='undoBar';
+  bar.style.cssText='position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:100000;background:#151a4d;color:#fff;padding:10px 12px 10px 18px;border-radius:999px;display:flex;align-items:center;gap:14px;box-shadow:0 12px 32px rgba(0,0,0,.3);font-size:13px;max-width:92vw;';
+  bar.innerHTML=`<span>已删除「${escapeHtml(r.device_name)}」</span>`;
+  const b=document.createElement('button');b.type='button';b.textContent='撤销';
+  b.style.cssText='border:none;background:#fff;color:#2b3bd4;font-weight:700;border-radius:999px;padding:6px 14px;cursor:pointer;';
+  const t=setTimeout(()=>bar.remove(),8000);
+  b.onclick=async()=>{clearTimeout(t);bar.remove();
+    try{const {id,created_at,...rest}=r;await addRecord(rest);await logAudit('restore',`撤销删除：${r.device_name}`);showToast('已恢复记录');await refreshAll();}
+    catch(e){showToast('恢复失败，请重新登记','error');}};
+  bar.appendChild(b);document.body.appendChild(bar);
+}
+function lowStockLimit(){return Number(localStorage.getItem('seventeen_low_stock_v1'))||0;}
+function refreshLowStockBtn(){const b=document.getElementById('lowStockBtn');if(b)b.textContent='预警线：≤'+lowStockLimit()+' 台';}
+window.__setLowStock=function(){
+  const v=prompt('最低库存线：可用台数 ≤ 该值时标红预警（0 表示仅无库存时预警，仅保存在本设备）',lowStockLimit());
+  if(v===null)return;
+  try{localStorage.setItem('seventeen_low_stock_v1',String(Math.max(0,parseInt(v,10)||0)));}catch(e){}
+  refreshLowStockBtn();try{renderInventoryModal();}catch(e){}
+};
+refreshLowStockBtn();
 
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
 else init();
